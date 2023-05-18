@@ -1,6 +1,5 @@
-from django.core.validators import MinLengthValidator, RegexValidator, MinValueValidator
+from django.core.validators import MinValueValidator
 from django.db import models
-from django.core.exceptions import ValidationError
 
 
 # Create your models here.

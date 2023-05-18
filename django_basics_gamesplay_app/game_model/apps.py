@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class GameProfileConfig(AppConfig):
+class GameModelConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'game_profile'
+    name = 'django_basics_gamesplay_app.game_model'

@@ -24,8 +24,8 @@
 
             <!-- Edit/Delete buttons -->
             <div class="buttons">
-                <a href="#" class="button">Edit</a>
-                <a href="#" class="button">Delete</a>
+                <a href="{% url 'edit-game' pk=game.id %}" class="button">Edit</a>
+                <a href="{% url 'delete-game' pk=game.id %}" class="button">Delete</a>
             </div>
         </div>
     </section>

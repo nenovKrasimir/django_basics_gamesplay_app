@@ -24,5 +24,29 @@ def details_game(request, pk):
     context = {'game': game}
     return render(request=request, template_name='details-game.html', context=context)
 
+
 def edit_game(request, pk):
-    pass
+    game = Game.objects.filter(id=pk).first()
+    form = GameForm(request.POST or None, instance=game)
+    context = {'game': game, 'form': form}
+
+    if request.method == "GET":
+        return render(request=request, template_name='edit-game.html', context=context)
+
+    if form.is_valid():
+        form.save()
+        return redirect('dashboard')
+
+
+def delete_game(request, pk):
+    game = Game.objects.filter(id=pk).first()
+    form = GameForm(request.POST or None, instance=game)
+    context = {'game': game, 'form': form}
+
+    if request.method == "GET":
+        for field in form.fields.values():
+            field.widget.attrs['disabled'] = 'disabled'
+        return render(request=request, template_name='delete-game.html', context=context)
+
+    game.delete()
+    return redirect('dashboard')

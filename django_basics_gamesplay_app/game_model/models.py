@@ -5,10 +5,11 @@ from django.db import models
 # Create your models here.
 class Game(models.Model):
     CHOICES = (
-        ("Action", "Adventure"),
-        ("Puzzle", "Strategy"),
+        ("Action", "Action"),
+        ("Puzzle", "Puzzle"),
         ("Board/Card Game", "Board/Card Game"),
-        ("Sports", "Other"),
+        ("Sports", "Sports"),
+        ("Other", "Other")
 
     )
     title = models.CharField(max_length=30, blank=False, null=False, unique=True)

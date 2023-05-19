@@ -16,24 +16,24 @@
         <h1><a class="home" href="{% url 'home-page' %}">GamesPlay</a></h1>
         <nav>
             {% if user %}
-                <a href="#">Dashboard</a>
-                <a href="#">Create Game</a>
+                <a href="{% url 'dashboard' %}">Dashboard</a>
+                <a href="{% url 'create-game' %}">Create Game</a>
                 <a href="#">Profile</a>
             {% else %}
-                <a href="#">Create Profile</a>
+                <a href="{% url 'create-profile' %}">Create Profile</a>
             {% endif %}
         </nav>
     </header>
-
-    <!-- headlines and default image -->
-    <section id="welcome-world">
-        <div class="welcome-message">
-            <h2>ALL new games are</h2>
-            <h3>Only in GamesPlay</h3>
-        </div>
-        <img src="../static/images/four_slider_img01.png" alt="hero">
-    </section>
     {% block content %}
+        <!-- headlines and default image -->
+        <section id="welcome-world">
+            <div class="welcome-message">
+                <h2>ALL new games are</h2>
+                <h3>Only in GamesPlay</h3>
+            </div>
+            <img src="../static/images/four_slider_img01.png" alt="hero">
+        </section>
+
     {% endblock %}
     <!-- footer -->
     <footer>

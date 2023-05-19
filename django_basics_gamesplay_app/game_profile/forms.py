@@ -5,13 +5,22 @@ from .models import Profile
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = '__all__'
+        fields = ['email', 'age', 'password']
 
         widgets = {
-            'email': forms.EmailField(attrs={'placeholder': 'Email'}),
-            'age': forms.IntegerField(),
-            'password': forms.PasswordInput(attrs={'placeholder': 'Password'}),
-            'first_name': forms.CharField(attrs={'placeholder': 'First Name'}),
-            'last_name': forms.CharField(attrs={'placeholder': 'Last Name'}),
-            'profile_picture': forms.URLField()
-        }
+            'email': forms.EmailInput(attrs={'placeholder': 'Email'}),
+            'age': forms.NumberInput(attrs={'placeholder': 'Age'}),
+            'password': forms.PasswordInput(attrs={'placeholder': 'Password'}),}
+        #     'first_name': forms.TextInput(attrs={'placeholder': 'First name'}),
+        #     'last_name': forms.TextInput(attrs={'placeholder': 'Last name'}),
+        #     'profile_picture': forms.URLInput(attrs={'placeholder': 'Image url'})
+        # }
+
+        labels = {
+            'email': 'Email',
+            'age': 'Age',
+            'password': 'Password',}
+        #     'first_name': 'First Name',
+        #     'last_name': 'Last Name',
+        #     'profile_picture': 'Profile Picture',
+        # }

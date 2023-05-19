@@ -4,5 +4,6 @@ from django_basics_gamesplay_app.common import views
 
 
 urlpatterns = [
-    path('', views.home_page, name='home-page')
+    path('', views.home_page, name='home-page'),
+    path('dashboard', views.dashboard, name='dashboard')
 ]

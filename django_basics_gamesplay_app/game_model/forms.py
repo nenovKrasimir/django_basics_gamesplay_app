@@ -2,16 +2,15 @@ from django import forms
 from .models import Game
 
 
-class GameFrom(forms.ModelForm):
+class GameForm(forms.ModelForm):
     class Meta:
         model = Game
         fields = '__all__'
-
+        category = forms.ChoiceField(choices=Game.CHOICES)
         widgets = {
-            'title': forms.CharField(attrs={'placeholder': 'Title'}),
-            'category': forms.CharField(attrs={'placeholder': 'Category'}),
-            'rating': forms.FloatField(),
-            'max_level': forms.IntegerField(),
-            'image_url': forms.URLField(),
-            'summary': forms.TextInput(attrs={'placeholder': 'Summary'})
+            'title': forms.TextInput(attrs={'placeholder': 'Title'}),
+            'rating': forms.NumberInput(),
+            'max_level': forms.NumberInput(),
+            'image_url': forms.URLInput(),
+            'summary': forms.Textarea(attrs={'placeholder': 'Summary'})
         }

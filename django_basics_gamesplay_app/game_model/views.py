@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 
 from django_basics_gamesplay_app.game_model.forms import GameForm
 from django_basics_gamesplay_app.game_model.models import Game
+from django_basics_gamesplay_app.game_profile.models import Profile
 
 
 # Create your views here.
@@ -9,14 +10,15 @@ from django_basics_gamesplay_app.game_model.models import Game
 
 def create_game(request):
     form = GameForm(request.POST or None)
-    context = {'form': form}
+    user = Profile.objects.first()
+    context = {'form': form, "user": user}
 
     if request.method == "GET":
         return render(request=request, template_name='create-game.html', context=context)
 
     if form.is_valid():
         form.save()
-        return redirect('home-page')
+        return redirect('dashboard')
 
 
 def details_game(request, pk):
